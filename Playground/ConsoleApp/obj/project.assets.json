@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Assortment/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Assortment.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Assortment.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Assortment/1.0.0": {
+      "type": "project",
+      "path": "../Assortment/Assortment.csproj",
+      "msbuildProject": "../Assortment/Assortment.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Assortment >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/spencernelson/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/spencernelson/dev/core/Playground/ConsoleApp/ConsoleApp.csproj",
+      "projectName": "ConsoleApp",
+      "projectPath": "/Users/spencernelson/dev/core/Playground/ConsoleApp/ConsoleApp.csproj",
+      "packagesPath": "/Users/spencernelson/.nuget/packages/",
+      "outputPath": "/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/spencernelson/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "/Users/spencernelson/dev/core/Playground/Assortment/Assortment.csproj": {
+              "projectPath": "/Users/spencernelson/dev/core/Playground/Assortment/Assortment.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

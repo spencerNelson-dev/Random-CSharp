@@ -1,0 +1,9 @@
+/Users/spencernelson/dev/core/Playground/Assortment/bin/Debug/netstandard2.0/Assortment.deps.json
+/Users/spencernelson/dev/core/Playground/Assortment/bin/Debug/netstandard2.0/Assortment.dll
+/Users/spencernelson/dev/core/Playground/Assortment/bin/Debug/netstandard2.0/Assortment.pdb
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.csprojAssemblyReference.cache
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.csproj.CoreCompileInputs.cache
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.AssemblyInfoInputs.cache
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.AssemblyInfo.cs
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.dll
+/Users/spencernelson/dev/core/Playground/Assortment/obj/Debug/netstandard2.0/Assortment.pdb

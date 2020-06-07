@@ -1,0 +1,12 @@
+/Users/spencernelson/dev/core/Games/bin/Debug/netcoreapp3.1/Games.deps.json
+/Users/spencernelson/dev/core/Games/bin/Debug/netcoreapp3.1/Games.runtimeconfig.json
+/Users/spencernelson/dev/core/Games/bin/Debug/netcoreapp3.1/Games.runtimeconfig.dev.json
+/Users/spencernelson/dev/core/Games/bin/Debug/netcoreapp3.1/Games.dll
+/Users/spencernelson/dev/core/Games/bin/Debug/netcoreapp3.1/Games.pdb
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.csprojAssemblyReference.cache
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.AssemblyInfoInputs.cache
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.AssemblyInfo.cs
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.csproj.CoreCompileInputs.cache
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.dll
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.pdb
+/Users/spencernelson/dev/core/Games/obj/Debug/netcoreapp3.1/Games.genruntimeconfig.cache

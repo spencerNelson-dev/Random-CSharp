@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZdxiH+PpPHZib64M44BqESLBLPta1JKdL8ut9JckxXHYtdGY6QGH38qpLjeQv+2cm3wthygQfHQlhsYT061tkw==",
+  "success": true,
+  "projectFilePath": "/Users/spencernelson/dev/core/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
+  "expectedPackageFiles": [
+    "/Users/spencernelson/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/spencernelson/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

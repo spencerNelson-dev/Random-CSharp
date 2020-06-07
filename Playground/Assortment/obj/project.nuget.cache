@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "d+WNk08m05GwuJCDNACjV2FQ1O1bMfUFilX1IovlkgYgJjFjWUK9mbgOin/bufnALhuylwyH9UwJslXEvChRGA==",
+  "success": true,
+  "projectFilePath": "/Users/spencernelson/dev/core/Playground/Assortment/Assortment.csproj",
+  "expectedPackageFiles": [
+    "/Users/spencernelson/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/spencernelson/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

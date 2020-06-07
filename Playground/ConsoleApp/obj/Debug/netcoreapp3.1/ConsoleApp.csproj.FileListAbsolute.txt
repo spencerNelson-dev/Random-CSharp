@@ -1,0 +1,15 @@
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.deps.json
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.runtimeconfig.json
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.runtimeconfig.dev.json
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.dll
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/ConsoleApp.pdb
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.csprojAssemblyReference.cache
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.csproj.CoreCompileInputs.cache
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.AssemblyInfoInputs.cache
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.AssemblyInfo.cs
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.dll
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.pdb
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.genruntimeconfig.cache
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/Assortment.dll
+/Users/spencernelson/dev/core/Playground/ConsoleApp/bin/Debug/netcoreapp3.1/Assortment.pdb
+/Users/spencernelson/dev/core/Playground/ConsoleApp/obj/Debug/netcoreapp3.1/ConsoleApp.csproj.CopyComplete
