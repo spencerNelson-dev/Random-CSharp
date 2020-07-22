@@ -1,0 +1,14 @@
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/FindARide.deps.json
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/FindARide.runtimeconfig.json
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/FindARide.runtimeconfig.dev.json
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/FindARide.dll
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/FindARide.pdb
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.csprojAssemblyReference.cache
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.AssemblyInfoInputs.cache
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.AssemblyInfo.cs
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.csproj.CoreCompileInputs.cache
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.dll
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.pdb
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.genruntimeconfig.cache
+/Users/spencernelson/dev/core/FindARide/bin/Debug/netcoreapp3.1/AngleSharp.dll
+/Users/spencernelson/dev/core/FindARide/obj/Debug/netcoreapp3.1/FindARide.csproj.CopyComplete

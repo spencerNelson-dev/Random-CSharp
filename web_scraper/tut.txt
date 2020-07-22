@@ -1,0 +1,181 @@
+Open in app
+
+Spencer Nelson
+A simple web-scraper in 30 minutes with .NET Core and AngleSharp — Part 1
+Ergo
+Ergo
+Follow
+Oct 21, 2019 · 7 min read
+
+
+https://medium.com/@ergojdev/a-simple-web-scraper-in-30-minutes-with-net-core-and-anglesharp-part-1-51fdf5ecafb1
+
+
+
+https://unsplash.com/photos/taiuG8CPKAQ
+Why am I writing this thing?
+I am currently looking for a used car to buy, something fun — that I can modify — and I’m sick and tired of checking the local used car website every single day for 30 minutes to up to an hour to see if there’s anything new or if anything has changed (price has dropped let’s say). So, I decided to solve this problem by writing a little web scraper that will routinely (every 5 minutes, good and interesting deals go fast) scrape the website, check if anything has changed and then email me the changes.
+What’s the plan?
+I am going to write a simple web API, which I can then poll on an interval from a different web app.
+I will use .NET Core with C# (because I don’t use it very often and I feel like using it right now) for the whole thing. There will be no UI as there’s really no need for one, because I will be mailing the changes to myself.
+Basic architecture
+Here’s the general layout of the entire process:
+Given a URL, make an HTTP request and download the data.
+Parse the HTML acquired using AngleSharp.
+Extract relevant information from parsed data and store it in a list.
+If a next page link exists go back to step one and repeat. Otherwise return list with data.
+Find out the differences between newly acquired data and data stored in the database (PostgreSql), update database accordingly.
+If differences exist put them into a summary and email them to myself using Mailgun.
+In the future I might make an Android app that will directly push the relevant data to my phone and might even sprinkle some machine learning on top (recommendations perhaps?), but that’s another article, or 100!
+Using .NET Core without Visual Studio
+If you’re like me, then Visual Studio gives you a migraine, so I definitely want to skip using it whenever I can. Luckily we can skip it! The dotnet CLI tools are quite simple to use and well documented (😲). You can even add controllers and models using the CLI and get the code generation utilities you would get in Visual Studio, but on the command line (meaning you could probably create integrated tools for whatever editor you’re using).
+Creating the basic scaffold
+The code is going to be quite simple and you won’t need a special environment to run it, so you have many options really. I’m going to use dotnet CLI to create a simple “webapi” which I can later put live and ping on some interval from another web app which will handle the timing.
+If you don’t have any other timing mechanism you can use the CLI to generate a basic windows service which will run in the background and make requests to your scraping target.
+To create a basic web api in .NET we run dotnet new webapi -o web_scraper. This will create a new project folder and setup a basic controller.
+
+Next up we cd into our project folder and check if the basic template works by running dotnet watch run .
+
+The basic template starts our app in localhost and port number 5001 (for HTTPS) which means if we direct a browser to https://localhost:5001/WeatherForecast then we should see this:
+
+“WeatherForecast” is just the basic controller you get when creating a new project, we don’t need it
+Great! Everything seems to be working, press Ctrl + C to shutdown the app.
+In the beginning, there was HTML
+I’m not going to write a HTML parser from scratch, instead I’m going to use something called AngleSharp. AngleSharp is a C# library for parsing a variety of formats that have angle brackets in them (XML, XPath, HTML, SVG and even CSS), see more here.
+What I like about AngleSharp is the fact that I can use the same selectors and syntax for selecting DOM elements as I would in Javascript and CSS. For example, suppose we got our HTML from the target website and now we want to get every element in it that has the class list-item. For that we just do document.QuerySelectorAll('.list-item') (same as in Javascript/CSS), no weird syntax or arcane, custom, barely documented selection logic.
+Before dealing with AngleSharp let us first create a new controller so we can actually see something we wrote on the screen. Luckily .NET core has CLI tools for that (don’t need VS, I’m all for that!).
+// A tool we need for code generation
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+// The command that generates our controller
+dotnet aspnet-codegenerator controller -name WebScraperController -async -api -outDir Controllers
+The last command creates a new controller in the “Controllers” folder called “WebScraperController”. Lets open it up!
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+namespace website_scraper.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class WebScraperController : ControllerBase
+    {
+    }
+}
+It should look something like the above. This is just a empty scaffold that doesn’t do much.
+Now let’s make it actually capable of receiving HTTP requests. For that we need to add another method to the class. Something like this.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+namespace website_scraper.Controllers
+{
+    [Route("[controller]")]
+    [ApiController]
+    public class WebScraperController : ControllerBase
+    {
+        private readonly ILogger<WebScraperController> _logger;
+        // Constructor
+        public WebScraperController(ILogger<WebScraperController> logger)
+        {
+            _logger = logger;
+        }
+        [HttpGet]
+        public string Get()
+        {
+            return "Hello";
+        }
+    }
+}
+Additionally I’m going to alter the route specified in the controller. Instead of Route("api/[controller]") I’m going to specify Route("[controller]") . This way I don’t have to write localhost:5001/api/WebScraper in the address bar, localhost:5001/WebScraper will do.
+I also added a constructor to the class which will give us a log handle so we can actually log out the data we receive to check if things are working.
+The [HttpGet] decorator signifies that the method below it can handle GET requests. The name can be anything, I used Get() because the MSDN documentation uses it. Let’s run our app again by typing dotnet watch run. Now if we navigate our browser to https://localhost:5001/WebScraper then we should see this.
+
+Now let’s get back to AngleSharp. To install it we run:
+I’m using .NET Core 3.0, you can grab the latest SDK from here
+dotnet add package AngleSharp
+This will grab and install the package for us via NuGet.
+Scraping by
+We setup our controller, installed AngleSharp, now let’s use it!
+For that we go intoWebScraperController.cs and include AngleSharp at the top.
+using AngleSharp;
+using AngleSharp.Html.Parser;
+To make the actual request, we don’t have to include any HTTP modules into our code, AngleSharp will do that for us. Add the code below to our Get() method.
+// Load default configuration
+var config = Configuration.Default.WithDefaultLoader();
+// Create a new browsing context
+var context = BrowsingContext.New(config);
+// This is where the HTTP request happens, returns <IDocument> that // we can query later
+var document = await context.OpenAsync("<add your target url here>");
+// Log the data to the console
+_logger.LogInformation(document.DocumentElement.OuterHtml);
+We provide the url, AngleSharp downloads the page, converts it into a DOM tree and now we can query it and get whatever element we desire.
+And it just works which is neat.
+HTML OuouOuouuu
+Querying the DOM with AngleSharp
+We got the contents of our page, now we need to extract relevant information out of it.
+Let’s move our code around a bit. Let’s create a new method GetPageData(string url, List<dynamic> results) inside WebScraperController.
+GetPageData will:
+Download the data found at the given url.
+Extract relevant information out of the data using AngleSharp.
+Store the results in the results list.
+Check if there is any “next page” link in the dom. If yes, get the url from that link and call GetPageData again with that url repeating the entire process until the the next page link can no longer be found (the website I’m scraping uses pagination to show results, hence the reason for that check).
+Return the results list.
+You can see my code below in a gist. The contents are very specific to my use case. Basically I’m extracting the make and model, year, fuel type and price from the website and storing it inside CarAdvert.
+
+Code for “WebScraperController” controller
+
+Code for my “CarAdvert” model
+GetPageData is going to be the main workhorse here. This will serve us our data. It will run recursively until it no longer finds a next page link. At this point we just return the results.
+Now we have to compare the data with whatever is in the database and make the correct updates.
+What’s left to do?
+This article is starting to get really long. So I’ve decided to split this into two parts.
+In the next part we are going to setup a database context and diff the data we got from our website, with our database contents and then we are going to email the changes to ourselves.
+Stay tuned for part two! Till next time!
+You can find part 2 here!
+Web Development
+Programming
+Dotnet Core
+Problem Solving
+Productivity
+64 claps
+
+
+
+
+
+Ergo
+WRITTEN BY
+
+Ergo
+Follow
+A software developer, dancer, surfer. Interested in a variety of things. My stories are mostly about technology/programming and creativity.
+More From Medium
+Related reads
+Use ASP.NET Core Razor Pages as API Endpoints
+Christopher Laine in IT Dead Inside
+Nov 2, 2019 · 5 min read
+89
+
+Related reads
+.Net Core Email Sender Library with Razor Templates (.cshtml) contained in it
+Gavril Ognjanovski
+Nov 7, 2018 · 4 min read
+418
+
+Related reads
+Generic repository pattern using Dapper
+Damir Bolic in ITNEXT
+Aug 6, 2019 · 7 min read
+334
+
+About
+Help
+Legal
+Get the Medium app
+A button that says 'Download on the App Store', and if clicked it will lead you to the iOS App store
+A button that says 'Get it on, Google Play', and if clicked it will lead you to the Google Play store

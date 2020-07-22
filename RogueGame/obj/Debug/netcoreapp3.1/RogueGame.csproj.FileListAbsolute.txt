@@ -1,0 +1,16 @@
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueGame.deps.json
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueGame.runtimeconfig.json
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueGame.runtimeconfig.dev.json
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueGame.dll
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueGame.pdb
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/OpenTK.dll
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RLNET.dll
+/Users/spencernelson/dev/core/RogueGame/bin/Debug/netcoreapp3.1/RogueSharp.dll
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.csprojAssemblyReference.cache
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.AssemblyInfoInputs.cache
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.AssemblyInfo.cs
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.csproj.CoreCompileInputs.cache
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.csproj.CopyComplete
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.dll
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.pdb
+/Users/spencernelson/dev/core/RogueGame/obj/Debug/netcoreapp3.1/RogueGame.genruntimeconfig.cache
